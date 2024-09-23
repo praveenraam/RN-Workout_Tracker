@@ -2,7 +2,10 @@ import { FlatList, Text, View } from 'react-native';
 import React from 'react';
 import { styled } from 'nativewind';
 
-const previousWorkouts = [
+// Interface
+import { Workout } from '../../screens/Home';
+
+const previousWorkouts: Workout[] = [
   {
     id: '1',
     date: '2024-09-21',
@@ -26,15 +29,20 @@ const previousWorkouts = [
 const StyledView = styled(View);
 const StyledText = styled(Text);
 
+const formatDate = (dateString:string) =>{
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-GB');
+};
+
 const PreviousWorkouts = () => {
 
-  const renderWorkoutItem = ({item})  => {
+  const renderWorkoutItem = ({item}:{item: Workout})  => {
     return (
-        <StyledView className="mb-4 p-4 border-b border-grey-300">
-            <StyledText className="text-xl font-bold">{item.date}</StyledText>
-            <StyledText className="text-lg">Muscles Worked : {item.musclesWorked.join(', ')}</StyledText>
-            <StyledText className="text-lg">Number of Exercise : {item.exercisesCount}</StyledText>
-        </StyledView>
+      <StyledView className="mb-4 p-4 border-b border-grey-300">
+          <StyledText className="text-xl font-bold">{formatDate(item.date)}</StyledText>
+          <StyledText className="text-lg">Muscles Worked : {item.musclesWorked.join(', ')}</StyledText>
+          <StyledText className="text-lg">Number of Exercise : {item.exercisesCount}</StyledText>
+      </StyledView>
     );
   };
 
