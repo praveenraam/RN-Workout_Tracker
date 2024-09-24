@@ -31,7 +31,21 @@ const TodaysWorkout = () => {
 
   const renderWorkoutItem = ({item}:{item: Workout}) => {
     return (
-      <Text>Need to render</Text>
+      <StyledView>
+
+        <StyledText>{formatDate(item.date)}</StyledText>
+        <StyledText>Muscle Worked : {item.musclesWorked.join(', ')}</StyledText>
+        <StyledText>Number of Exercises : {item.exercisesCount}</StyledText>
+
+        <StyledView>
+
+          <StyledText>Exercises : </StyledText>
+          {item.exercises.map((exercise,index)=>(
+            <StyledText key={index}>- {exercise}</StyledText>
+          ))}
+        </StyledView>
+
+      </StyledView>
     );
   };
 
