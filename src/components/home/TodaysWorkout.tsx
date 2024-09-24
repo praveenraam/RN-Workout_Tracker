@@ -1,6 +1,6 @@
 import { Text, View, FlatList } from 'react-native';
 import React from 'react';
-import { formatDate, previousWorkouts } from './PreviousWorkouts';
+import { previousWorkouts } from './PreviousWorkouts';
 import { styled } from 'nativewind';
 
 import { Workout } from '../../screens/Home';
@@ -33,15 +33,14 @@ const TodaysWorkout = () => {
     return (
       <StyledView>
 
-        <StyledText>{formatDate(item.date)}</StyledText>
-        <StyledText>Muscle Worked : {item.musclesWorked.join(', ')}</StyledText>
-        <StyledText>Number of Exercises : {item.exercisesCount}</StyledText>
+        <StyledText className="font-bold text-xl">Muscle Worked : {item.musclesWorked.join(', ')}</StyledText>
+        <StyledText className="font-bold">Number of Exercises : {item.exercisesCount}</StyledText>
 
         <StyledView>
 
-          <StyledText>Exercises : </StyledText>
+          <StyledText className="font-bold text-black my-3 text-xl">Exercises : </StyledText>
           {item.exercises.map((exercise,index)=>(
-            <StyledText key={index}>- {exercise}</StyledText>
+            <StyledText className="text-black text-base	" key={index}> &#8227;  {exercise}</StyledText>
           ))}
         </StyledView>
 
@@ -51,7 +50,7 @@ const TodaysWorkout = () => {
 
   return (
     <StyledView>
-      <StyledText>Today's Workout</StyledText>
+      <StyledText className="text-lg font-bold text-black mb-5">Today's Workout</StyledText>
 
       {todayWorkout.length > 0 ?
         (<FlatList data={todayWorkout}
@@ -59,7 +58,7 @@ const TodaysWorkout = () => {
           keyExtractor={(item)=>item.id}
           horizontal={true}
         />) : (
-          <StyledText>NO workout today</StyledText>
+          <StyledText className="text-2xl font-bold">Not worked today</StyledText>
         )
       }
     </StyledView>

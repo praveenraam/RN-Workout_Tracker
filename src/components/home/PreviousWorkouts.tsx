@@ -46,9 +46,9 @@ export const formatDate = (dateString:string) =>{
 const renderWorkoutItem = ({item}:{item: Workout})  => {
   return (
     <StyledView className="mb-4 p-4 border-b border-grey-300">
-        <StyledText className="text-xl font-bold">{formatDate(item.date)}</StyledText>
-        <StyledText className="text-lg">Muscles Worked : {item.musclesWorked.join(', ')}</StyledText>
-        <StyledText className="text-lg">Number of Exercise : {item.exercisesCount}</StyledText>
+        <StyledText className="text-xl font-bold text-black">{formatDate(item.date)}</StyledText>
+        <StyledText className="font-bold text-xl">Muscle Worked : {item.musclesWorked.join(', ')}</StyledText>
+        <StyledText className="font-bold">Number of Exercises : {item.exercisesCount}</StyledText>
     </StyledView>
   );
 };
@@ -59,7 +59,7 @@ const PreviousWorkouts = () => {
   return (
     <StyledView>
       <StyledView className="mb-4">
-        <StyledText className="text-lg font-bold">Previous Day Workouts</StyledText>
+        <StyledText className="text-lg font-bold text-black">Previous Day Workouts</StyledText>
       </StyledView>
 
       <FlatList
