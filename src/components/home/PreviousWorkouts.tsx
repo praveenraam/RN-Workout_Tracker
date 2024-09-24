@@ -5,46 +5,56 @@ import { styled } from 'nativewind';
 // Interface
 import { Workout } from '../../screens/Home';
 
-const previousWorkouts: Workout[] = [
+export const previousWorkouts: Workout[] = [
   {
     id: '1',
-    date: '2024-09-21',
+    date: '2024-09-24',
     musclesWorked: ['Biceps', 'Back'],
     exercisesCount: 6,
+    exercises: [
+      'Lat Pulldown', 'CableRows', 'Dead Lift','T-Bar rows', 'Inclined Bicep curls', 'Preacher Curls',
+    ],
   },
   {
     id: '2',
     date: '2024-09-20',
     musclesWorked: ['Chest', 'Triceps'],
-    exercisesCount: 5,
+    exercises: [
+      'Inclined Dumbbell Press', 'Declined Dumbbell Press', 'Flat Dumbbell Press','Pec Decs','Skull Crusher', 'Triceps Push down',
+    ],
+    exercisesCount: 6,
   },
   {
     id: '3',
     date: '2024-09-19',
     musclesWorked: ['Legs'],
-    exercisesCount: 7,
+    exercisesCount: 5,
+    exercises: [
+      'Dead Lift', 'Squats', 'Leg Extension', 'Leg curl', 'Romanian Dead Lift',
+    ],
   },
 ];
 
 const StyledView = styled(View);
 const StyledText = styled(Text);
 
-const formatDate = (dateString:string) =>{
+export const formatDate = (dateString:string) =>{
   const date = new Date(dateString);
   return date.toLocaleDateString('en-GB');
 };
 
+const renderWorkoutItem = ({item}:{item: Workout})  => {
+  return (
+    <StyledView className="mb-4 p-4 border-b border-grey-300">
+        <StyledText className="text-xl font-bold">{formatDate(item.date)}</StyledText>
+        <StyledText className="text-lg">Muscles Worked : {item.musclesWorked.join(', ')}</StyledText>
+        <StyledText className="text-lg">Number of Exercise : {item.exercisesCount}</StyledText>
+    </StyledView>
+  );
+};
+
 const PreviousWorkouts = () => {
 
-  const renderWorkoutItem = ({item}:{item: Workout})  => {
-    return (
-      <StyledView className="mb-4 p-4 border-b border-grey-300">
-          <StyledText className="text-xl font-bold">{formatDate(item.date)}</StyledText>
-          <StyledText className="text-lg">Muscles Worked : {item.musclesWorked.join(', ')}</StyledText>
-          <StyledText className="text-lg">Number of Exercise : {item.exercisesCount}</StyledText>
-      </StyledView>
-    );
-  };
 
   return (
     <StyledView>

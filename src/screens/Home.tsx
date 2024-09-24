@@ -15,13 +15,14 @@ export interface Workout {
   date:string;
   musclesWorked: string[];
   exercisesCount:number;
+  exercises:string[],
 }
 
 const Home = () => {
     return (
     <StyledView className="p-4">
       <PreviousWorkouts />
-      {/* <TodaysWorkout /> */}
+      <TodaysWorkout />
     </StyledView>
   );
 };
