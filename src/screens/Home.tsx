@@ -1,6 +1,7 @@
 import { Pressable, View, Text, Image, ScrollView } from 'react-native';
 import React from 'react';
 import { styled } from 'nativewind';
+import { useNavigation } from '@react-navigation/native';
 
 // Components
 import PreviousWorkouts from '../components/home/PreviousWorkouts';
@@ -21,12 +22,20 @@ export interface Workout {
   exercises:string[],
 }
 
+
 const Home = () => {
-    return (
+
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    navigation.navigate('WorkoutList'); // Navigate to Workout List screen
+  };
+
+  return (
     <StyledView className="p-4 w-full h-full">
       <TodaysWorkout />
       <PreviousWorkouts />
-      <StyledPressable className="bg-violet-600 p-4 absolute bottom-0 right-0 left-0 flex-row items-center justify-between">
+      <StyledPressable onPress={handlePress} className="bg-violet-600 p-4 absolute bottom-0 right-0 left-0 flex-row items-center justify-between">
         <StyledText className="text-2xl font-bold text-white ">Proceed to Workout</StyledText>
         <StyledImage source={require('../../assets/right.png')} className="w-10 h-10 "/>
       </StyledPressable>
