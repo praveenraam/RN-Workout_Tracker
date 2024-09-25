@@ -49,7 +49,7 @@ const TodaysWorkout = () => {
   };
 
   return (
-    <StyledView>
+    <StyledView className="mb-4">
       <StyledText className="text-lg font-bold text-black mb-5">Today's Workout</StyledText>
 
       {todayWorkout.length > 0 ?
