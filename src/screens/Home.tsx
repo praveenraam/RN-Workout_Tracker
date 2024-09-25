@@ -13,6 +13,7 @@ const StyledText = styled(Text);
 const StyledPressable = styled(Pressable);
 const StyledImage = styled(Image);
 const StyledScrollView = styled(ScrollView);
+
 // Interface
 export interface Workout {
   id: string;
@@ -28,7 +29,7 @@ const Home = () => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate('WorkoutList'); // Navigate to Workout List screen
+    navigation.navigate('Workout_List');
   };
 
   return (
