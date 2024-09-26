@@ -40,7 +40,7 @@ const TodaysWorkout = () => {
 
           <StyledText className="font-bold text-black my-3 text-xl">Exercises : </StyledText>
           {item.exercises.map((exercise,index)=>(
-            <StyledText className="text-black text-base	" key={index}> &#8227;  {exercise}</StyledText>
+            <StyledText className="text-black text-base" key={index}> &#8227;  {exercise}</StyledText>
           ))}
         </StyledView>
 
@@ -49,7 +49,7 @@ const TodaysWorkout = () => {
   };
 
   return (
-    <StyledView className="mb-4">
+    <StyledView className="mb-2">
       <StyledText className="text-lg font-bold text-black mb-5">Today's Workout</StyledText>
 
       {todayWorkout.length > 0 ?
