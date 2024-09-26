@@ -15,11 +15,11 @@ const WorkoutList = () => {
   ];
 
   return (
-    <StyledScrollView>
+    <StyledScrollView className="w-full h-full bg-black">
       {muscleGroups.map((group,index) => (
-        <StyledPressable key={index} >
-          <StyledText >{group}</StyledText>
-          <StyledImage  source={require('../../assets/right.png')} />
+        <StyledPressable key={index} className="bg-violet-600 my-2 mx-4 p-4 rounded-2xl flex-row items-center justify-between">
+          <StyledText className="text-xl mx-5 text-white">{group}</StyledText>
+          <StyledImage className="w-9 h-9" source={require('../../assets/right.png')} />
         </StyledPressable>
       ))}
     </StyledScrollView>
