@@ -1,12 +1,12 @@
 import { Text, View } from 'react-native';
 import React from 'react';
 
-const MuscleWorkList = () => {
+const PerMuscleWorkedList = () => {
   return (
     <View>
-      <Text>MuscleWo rkList</Text>
+      <Text>MuscleWork List</Text>
     </View>
   );
 };
 
-export default MuscleWorkList;
+export default PerMuscleWorkedList;
