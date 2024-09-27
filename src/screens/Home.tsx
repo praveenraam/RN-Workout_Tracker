@@ -27,7 +27,7 @@ const Home = () => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate('Workout_List');
+    navigation.navigate('Muscles List');
   };
 
   return (

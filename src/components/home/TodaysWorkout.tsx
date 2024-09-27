@@ -33,7 +33,7 @@ const TodaysWorkout = () => {
     return (
       <StyledView>
 
-        <StyledText className="font-bold text-xl text-white">Muscle Worked : {item.musclesWorked.join(', ')}</StyledText>
+        <StyledText className="font-bold texttext-xl text-white">Muscle Worked : {item.musclesWorked.join(', ')}</StyledText>
         <StyledText className="font-bold text-white">Number of Exercises : {item.exercisesCount}</StyledText>
 
         <StyledView>
@@ -50,7 +50,7 @@ const TodaysWorkout = () => {
 
   return (
     <StyledView className="mb-2">
-      <StyledText className="text-lg font-bold text-black mb-5 text-white">Today's Workout</StyledText>
+      <StyledText className="text-3xl font-bold text-black mb-5 text-white">Today's Workout</StyledText>
 
       {todayWorkout.length > 0 ?
         (<FlatList data={todayWorkout}
@@ -58,7 +58,7 @@ const TodaysWorkout = () => {
           keyExtractor={(item)=>item.id}
           horizontal={true}
         />) : (
-          <StyledText className="text-2xl font-bold text-white">Not worked today</StyledText>
+          <StyledText className="text-lg font-bold text-white">No workout done today</StyledText>
         )
       }
     </StyledView>
