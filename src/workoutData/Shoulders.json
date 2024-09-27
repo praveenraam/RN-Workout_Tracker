@@ -1,0 +1,163 @@
+[
+    {
+      "no": 1,
+      "name": "Overhead Press",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "barbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 2,
+      "name": "Push Press",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "barbell",
+      "difficulty": "advanced"
+    },
+    {
+      "no": 3,
+      "name": "Dumbbell Shoulder Press",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "dumbbell",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 4,
+      "name": "Seated Dumbbell Press",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "dumbbell",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 5,
+      "name": "Arnold Press",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "dumbbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 6,
+      "name": "Standing Barbell Press",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "barbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 7,
+      "name": "Landmine Press",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "landmine",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 8,
+      "name": "Behind-the-Neck Press",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "barbell",
+      "difficulty": "advanced"
+    },
+    {
+      "no": 9,
+      "name": "Front Raise",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "dumbbell",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 10,
+      "name": "Incline Dumbbell Front Raise",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "dumbbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 11,
+      "name": "Single-Arm Cable Front Raise",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "cable machine",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 12,
+      "name": "Lateral Raise",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "dumbbell",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 13,
+      "name": "Cable Lateral Raise",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "cable machine",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 14,
+      "name": "Reverse Pec Deck Fly",
+      "type": "strength",
+      "muscle": "rear delts",
+      "equipment": "machine",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 15,
+      "name": "Cable Reverse Fly",
+      "type": "strength",
+      "muscle": "rear delts",
+      "equipment": "cable machine",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 16,
+      "name": "Bent-Over Dumbbell Reverse Fly",
+      "type": "strength",
+      "muscle": "rear delts",
+      "equipment": "dumbbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 17,
+      "name": "Face Pull",
+      "type": "strength",
+      "muscle": "shoulders, traps",
+      "equipment": "cable machine",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 18,
+      "name": "Dumbbell Shrugs",
+      "type": "strength",
+      "muscle": "shoulders, traps",
+      "equipment": "dumbbell",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 19,
+      "name": "Upright Row",
+      "type": "strength",
+      "muscle": "shoulders, traps",
+      "equipment": "barbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 20,
+      "name": "Dumbbell High Pull",
+      "type": "strength",
+      "muscle": "shoulders",
+      "equipment": "dumbbell",
+      "difficulty": "intermediate"
+    }
+]
+  

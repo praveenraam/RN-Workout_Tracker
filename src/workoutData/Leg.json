@@ -1,0 +1,163 @@
+[
+    {
+      "no": 1,
+      "name": "Leg Extensions",
+      "type": "strength",
+      "muscle": "quads",
+      "equipment": "machine",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 2,
+      "name": "Squats",
+      "type": "strength",
+      "muscle": "quads, hamstrings, glutes",
+      "equipment": "barbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 3,
+      "name": "Leg Press",
+      "type": "strength",
+      "muscle": "quads, hamstrings, glutes",
+      "equipment": "machine",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 4,
+      "name": "Lunges",
+      "type": "strength",
+      "muscle": "quads, hamstrings, glutes",
+      "equipment": "dumbbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 5,
+      "name": "Bulgarian Split Squats",
+      "type": "strength",
+      "muscle": "quads, hamstrings, glutes",
+      "equipment": "dumbbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 6,
+      "name": "Goblet Squats",
+      "type": "strength",
+      "muscle": "quads, hamstrings, glutes",
+      "equipment": "dumbbell",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 7,
+      "name": "Step-Ups",
+      "type": "strength",
+      "muscle": "quads, hamstrings, glutes",
+      "equipment": "dumbbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 8,
+      "name": "Walking Lunges",
+      "type": "strength",
+      "muscle": "quads, hamstrings, glutes",
+      "equipment": "dumbbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 9,
+      "name": "Reverse Lunges",
+      "type": "strength",
+      "muscle": "quads, hamstrings, glutes",
+      "equipment": "dumbbell",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 10,
+      "name": "Front Squats",
+      "type": "strength",
+      "muscle": "quads, glutes",
+      "equipment": "barbell",
+      "difficulty": "advanced"
+    },
+    {
+      "no": 11,
+      "name": "Box Jumps",
+      "type": "plyometric",
+      "muscle": "quads, hamstrings, glutes",
+      "equipment": "box",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 12,
+      "name": "Leg Curls",
+      "type": "strength",
+      "muscle": "hamstrings",
+      "equipment": "machine",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 13,
+      "name": "Sumo Deadlifts",
+      "type": "strength",
+      "muscle": "hamstrings, glutes, inner thighs",
+      "equipment": "barbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 14,
+      "name": "Kettlebell Swings",
+      "type": "strength",
+      "muscle": "hamstrings, glutes",
+      "equipment": "kettlebell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 15,
+      "name": "Single-Leg Deadlifts",
+      "type": "strength",
+      "muscle": "hamstrings, glutes",
+      "equipment": "dumbbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 16,
+      "name": "+",
+      "type": "strength",
+      "muscle": "hamstrings, glutes, lower back",
+      "equipment": "barbell",
+      "difficulty": "advanced"
+    },
+    {
+      "no": 17,
+      "name": "Hip Thrusts",
+      "type": "strength",
+      "muscle": "glutes",
+      "equipment": "barbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 18,
+      "name": "Calf Raises",
+      "type": "strength",
+      "muscle": "calves",
+      "equipment": "bodyweight or dumbbell",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 19,
+      "name": "Standing Calf Raises",
+      "type": "strength",
+      "muscle": "calves",
+      "equipment": "bodyweight or barbell",
+      "difficulty": "beginner"
+    },
+    {
+      "no": 20,
+      "name": "Seated Calf Raises",
+      "type": "strength",
+      "muscle": "calves",
+      "equipment": "machine",
+      "difficulty": "beginner"
+    }
+]
+  

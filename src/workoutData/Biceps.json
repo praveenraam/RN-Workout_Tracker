@@ -1,0 +1,130 @@
+[
+    {
+        "no": 1,
+        "name": "Barbell Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "barbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 2,
+        "name": "Concentration Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 3,
+        "name": "Preacher Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "barbell",
+        "difficulty": "advanced"
+    },
+    {
+        "no": 4,
+        "name": "EZ Bar Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "EZ bar",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 5,
+        "name": "Hammer Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "dumbbell",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 6,
+        "name": "Cable Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 7,
+        "name": "Zottman Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 8,
+        "name": "Spider Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "dumbbell",
+        "difficulty": "advanced"
+    },
+    {
+        "no": 9,
+        "name": "Chin-Ups",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "bodyweight",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 10,
+        "name": "Incline Dumbbell Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 11,
+        "name": "Wide-Grip Barbell Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "barbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 12,
+        "name": "Concentration Cable Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 13,
+        "name": "Reverse Grip Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "barbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 14,
+        "name": "One-Arm Cable Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 15,
+        "name": "Seated Dumbbell Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "dumbbell",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 16,
+        "name": "Drag Curl",
+        "type": "strength",
+        "muscle": "biceps",
+        "equipment": "barbell",
+        "difficulty": "advanced"
+    }
+]

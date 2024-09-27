@@ -1,0 +1,146 @@
+[
+    {
+      "no": 1,
+      "name": "Flat Barbell Bench Press",
+      "type": "strength",
+      "muscle": "chest",
+      "equipment": "barbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 2,
+      "name": "Incline Barbell Press",
+      "type": "strength",
+      "muscle": "chest",
+      "equipment": "barbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 3,
+      "name": "Decline Bench Press",
+      "type": "strength",
+      "muscle": "chest",
+      "equipment": "barbell",
+      "difficulty": "intermediate"
+    },
+    {
+      "no": 4,
+      "name": "Smith Machine Bench Press",
+      "type": "strength",
+      "muscle": "chest",
+      "equipment": "Smith machine",
+      "difficulty": "intermediate"
+    },
+    {
+        "no": 5,
+        "name": "Incline Dumbbell Press",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 6,
+        "name": "Flat Dumbbell Press",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 7,
+        "name": "Dumbbell Flyes",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 8,
+        "name": "Decline Dumbbell Flyes",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 9,
+        "name": "Dumbbell Pullover",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 10,
+        "name": "Push-Ups",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "bodyweight",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 11,
+        "name": "Decline Push-Ups",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "bodyweight",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 12,
+        "name": "Close-Grip Push-Ups",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "bodyweight",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 13,
+        "name": "Weighted Chest Dips",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "bodyweight + weight",
+        "difficulty": "advanced"
+    },
+    {
+        "no": 14,
+        "name": "Machine Chest Press",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "machine",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 15,
+        "name": "Pec Deck Machine",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "machine",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 16,
+        "name": "Cable Crossover",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 17,
+        "name": "Incline Cable Fly",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 18,
+        "name": "Landmine Chest Press",
+        "type": "strength",
+        "muscle": "chest",
+        "equipment": "landmine",
+        "difficulty": "intermediate"
+    }
+]

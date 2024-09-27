@@ -22,7 +22,6 @@ export interface Workout {
   exercises:string[],
 }
 
-
 const Home = () => {
 
   const navigation = useNavigation();

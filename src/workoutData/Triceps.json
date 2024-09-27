@@ -1,0 +1,74 @@
+[
+    {
+        "no": 1,
+        "name": "Skull Crusher",
+        "type": "strength",
+        "muscle": "triceps",
+        "equipment": "barbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 2,
+        "name": "Tricep Dips",
+        "type": "strength",
+        "muscle": "triceps",
+        "equipment": "bodyweight",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 3,
+        "name": "Overhead Tricep Extension",
+        "type": "strength",
+        "muscle": "triceps",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 4,
+        "name": "Tricep Kickback",
+        "type": "strength",
+        "muscle": "triceps",
+        "equipment": "dumbbell",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 5,
+        "name": "Cable Tricep Pushdown",
+        "type": "strength",
+        "muscle": "triceps",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 6,
+        "name": "Diamond Push-Ups",
+        "type": "strength",
+        "muscle": "triceps",
+        "equipment": "bodyweight",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 7,
+        "name": "Reverse Grip Tricep Pushdown",
+        "type": "strength",
+        "muscle": "triceps",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 8,
+        "name": "Single-Arm Cable Pushdown",
+        "type": "strength",
+        "muscle": "triceps",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 9,
+        "name": "Dumbbell Tate Press",
+        "type": "strength",
+        "muscle": "triceps",
+        "equipment": "dumbbell",
+        "difficulty": "advanced"
+    }
+]

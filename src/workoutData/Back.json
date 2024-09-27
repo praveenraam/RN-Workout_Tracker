@@ -1,0 +1,187 @@
+[
+    {
+        "no": 1,
+        "name": "Barbell Deadlift",
+        "type": "strength",
+        "muscle": "back",
+        "equipment": "barbell",
+        "difficulty": "advanced"
+    },
+    {
+        "no": 2,
+        "name": "Bent-Over Barbell Row",
+        "type": "strength",
+        "muscle": "back, lats",
+        "equipment": "barbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 3,
+        "name": "Rack Pull",
+        "type": "strength",
+        "muscle": "back",
+        "equipment": "barbell",
+        "difficulty": "advanced"
+    },
+    {
+        "no": 4,
+        "name": "T-Bar Row",
+        "type": "strength",
+        "muscle": "back",
+        "equipment": "T-bar",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 5,
+        "name": "Landmine Row",
+        "type": "strength",
+        "muscle": "back, lats",
+        "equipment": "landmine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 6,
+        "name": "Pull-Ups",
+        "type": "strength",
+        "muscle": "back, lats",
+        "equipment": "bodyweight",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 7,
+        "name": "Inverted Row",
+        "type": "strength",
+        "muscle": "back, lats",
+        "equipment": "bodyweight",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 8,
+        "name": "Wide-Grip Pull-Ups",
+        "type": "strength",
+        "muscle": "lats",
+        "equipment": "bodyweight",
+        "difficulty": "advanced"
+    },
+    {
+        "no": 9,
+        "name": "Hyperextensions",
+        "type": "strength",
+        "muscle": "lower back",
+        "equipment": "bodyweight",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 10,
+        "name": "Lat Pulldown",
+        "type": "strength",
+        "muscle": "lats",
+        "equipment": "cable machine",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 11,
+        "name": "Wide-Grip Lat Pulldown",
+        "type": "strength",
+        "muscle": "lats",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 12,
+        "name": "Seated Cable Row",
+        "type": "strength",
+        "muscle": "back, lats",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 13,
+        "name": "Single-Arm Cable Row",
+        "type": "strength",
+        "muscle": "lats",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 14,
+        "name": "Straight-Arm Pulldown",
+        "type": "strength",
+        "muscle": "lats",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 15,
+        "name": "Reverse-Grip Lat Pulldown",
+        "type": "strength",
+        "muscle": "lats",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 16,
+        "name": "Wide-Grip Seated Row",
+        "type": "strength",
+        "muscle": "back",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 17,
+        "name": "Cable Face Pull",
+        "type": "strength",
+        "muscle": "upper back",
+        "equipment": "cable machine",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 18,
+        "name": "Dumbbell Row",
+        "type": "strength",
+        "muscle": "back, lats",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 19,
+        "name": "Renegade Row",
+        "type": "strength",
+        "muscle": "back, lats",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 20,
+        "name": "Reverse Flyes",
+        "type": "strength",
+        "muscle": "upper back",
+        "equipment": "dumbbell",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 21,
+        "name": "Dumbbell Shrugs",
+        "type": "strength",
+        "muscle": "upper back",
+        "equipment": "dumbbell",
+        "difficulty": "beginner"
+    },
+    {
+        "no": 22,
+        "name": "Bent-Over Reverse Fly",
+        "type": "strength",
+        "muscle": "upper back",
+        "equipment": "dumbbell",
+        "difficulty": "intermediate"
+    },
+    {
+        "no": 23,
+        "name": "Chest Supported Row",
+        "type": "strength",
+        "muscle": "back",
+        "equipment": "machine",
+        "difficulty": "intermediate"
+    }
+]
+  
