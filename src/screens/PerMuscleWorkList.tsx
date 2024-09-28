@@ -80,8 +80,7 @@ const PerMuscleWorkedList = () => {
 
       <StyledView className="flex flex-row ">
         <StyledView className="w-[10%] flex justify-center items-center">
-          {/* Vertical Line */}
-          <StyledView className="w-[3px] bg-gray-400 mx-4 h-full" />
+        <StyledView className="w-[3px] bg-gray-400 mx-4 h-full" />
         </StyledView>
 
         <StyledScrollView className="text-white">
@@ -91,7 +90,13 @@ const PerMuscleWorkedList = () => {
               data={workoutList}
               keyExtractor={(item) => item.id}
               renderItem={({item}) => (
-                <StyledText key={item.no} className="text-xl font-bold text-white mb-3">{item.name}</StyledText>
+                <StyledView className="flex flex-row items-center justify-between mb-3">
+                  <ScrollView className="flex-1">
+                    <StyledText key={item.no} className="text-xl font-bold text-white">{item.name}</StyledText>
+                    <StyledText className="text-sm text-white mb-3">Equipment : {item.equipment}</StyledText>
+                  </ScrollView>
+                  <StyledImage className="w-7 h-7 right-3" source={require('../../assets/plus.png')} />
+                </StyledView>
               )}
             />
 
