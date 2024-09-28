@@ -7,7 +7,7 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 //
 const StyledImage = styled(Image);
 const StyledView = styled(View);
-const StyleText = styled(Text);
+const StyledText = styled(Text);
 
 //
 type Param = {
@@ -16,14 +16,37 @@ type Param = {
   }
 }
 
+
 const PerMuscleWorkedList = () => {
+
+  const getImage = (Muscle:string) => {
+    if(Muscle === 'Back'){
+      return require('../../assets/WorkoutList/Back.webp');
+    }
+    else if(Muscle === 'Biceps'){
+      return require('../../assets/WorkoutList/Biceps.webp');
+    }
+    else if(Muscle === 'Chest'){
+      return require('../../assets/WorkoutList/Chest.webp');
+    }
+    else if(Muscle === 'Legs'){
+      return require('../../assets/WorkoutList/Glutes.webp');
+    }
+    else if(Muscle === 'Shoulders'){
+      return require('../../assets/WorkoutList/Shoulders.webp');
+    }
+    else if(Muscle === 'Triceps'){
+      return require('../../assets/WorkoutList/Triceps.webp');
+    }
+  };
 
   const route = useRoute<RouteProp<Param,'Muscle'>>();
   const muscleName = route.params.muscleName;
 
   return (
     <StyledView>
-      <StyleText className="text-black">{muscleName}</StyleText>
+      <StyledText className="text-black">{muscleName}</StyledText>
+      <StyledImage source={getImage(muscleName)} />
     </StyledView>
   );
 };
