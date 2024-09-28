@@ -1,13 +1,14 @@
-import { Image, Text, View } from 'react-native';
-import React from 'react';
+import { Image, Text, View, ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import { RouteProp, useRoute } from '@react-navigation/native';
-
+import { FlatList } from 'react-native-gesture-handler';
 
 //
 const StyledImage = styled(Image);
 const StyledView = styled(View);
 const StyledText = styled(Text);
+const StyledScrollView = styled(ScrollView);
 
 //
 type Param = {
@@ -16,8 +17,9 @@ type Param = {
   }
 }
 
-
 const PerMuscleWorkedList = () => {
+
+  const [workoutList,setWorkoutList] = useState<any[]>([]);
 
   const getImage = (Muscle:string) => {
     if(Muscle === 'Back'){
@@ -40,14 +42,63 @@ const PerMuscleWorkedList = () => {
     }
   };
 
+  const getWorkout = (muscle: string) => {
+
+      if(muscle === 'Back'){
+        return require('../workoutData/Back.json');
+      }
+      else if(muscle === 'Biceps'){
+        return require('../workoutData/Biceps.json');
+      }
+      else if(muscle === 'Chest'){
+        return require('../workoutData/Chest.json');
+      }
+      else if(muscle === 'Legs'){
+        return require('../workoutData/Leg.json');
+      }
+      else if(muscle === 'Shoulders'){
+        return require('../workoutData/Shoulders.json');
+      }
+      else if(muscle === 'Triceps'){
+        return require('../workoutData/Triceps.json');
+      }
+    };
+
   const route = useRoute<RouteProp<Param,'Muscle'>>();
   const muscleName = route.params.muscleName;
 
+  // Getting workout list
+  useEffect(() => {
+    const workouts = getWorkout(muscleName);
+    setWorkoutList(workouts);
+    console.log('Workout List:', workouts);
+  }, [muscleName]);
+
   return (
-    <StyledView>
-      <StyledText className="text-black">{muscleName}</StyledText>
-      <StyledImage source={getImage(muscleName)} />
-    </StyledView>
+    <StyledScrollView className="bg-black h-screen">
+      <StyledImage className="w-full h-80 mb-5" source={getImage(muscleName)} />
+
+      <StyledView className="flex flex-row ">
+        <StyledView className="w-[10%] flex justify-center items-center">
+          {/* Vertical Line */}
+          <StyledView className="w-[3px] bg-gray-400 mx-4 h-full" />
+        </StyledView>
+
+        <StyledScrollView className="text-white">
+          <StyledView>
+            {/* Rendering Data */}
+            <FlatList
+              data={workoutList}
+              keyExtractor={(item) => item.id}
+              renderItem={({item}) => (
+                <StyledText key={item.no} className="text-xl font-bold text-white mb-3">{item.name}</StyledText>
+              )}
+            />
+
+          </StyledView>
+        </StyledScrollView>
+      </StyledView>
+    </StyledScrollView>
   );
 };
 
