@@ -69,7 +69,28 @@ const PerMuscleWorkedList = () => {
 
   // Store workout like this
   const handleSaveWorkout = async (newWorkoutName: string) => {
-    
+    try {
+      const dateKey = new Date().toISOString().split('T')[0];
+      let updatedWorkout;
+
+      const existingData = await getData(dateKey);
+      if (existingData) {
+        updatedWorkout = {
+          ...existingData,
+          workouts: [...(existingData.workouts || []), newWorkoutName],
+        };
+      } else {
+        updatedWorkout = {
+          workouts: [newWorkoutName],
+        };
+      }
+
+      // console.log(updatedWorkout);
+      await saveData(updatedWorkout);
+      console.log('Workout saved successfully');
+    } catch (error) {
+      console.log('Error saving workout', error);
+    }
   };
 
   // Getting workout list
