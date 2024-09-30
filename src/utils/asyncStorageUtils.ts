@@ -32,3 +32,22 @@ export const getData = async (date:any): Promise<any | null> => {
         return null;
     }
 };
+
+export const removeData = async (date:any): Promise<any | null> => {
+    try{
+        await AsyncStorage.removeItem(date);
+    }
+    catch(error){
+        console.log('Error in removing data');
+    }
+};
+
+export const clearData = async(): Promise<void> =>{
+    try{
+        await AsyncStorage.clear();
+        console.log('No error');
+    }
+    catch(error){
+        console.log('Error : ',error);
+    }
+};
