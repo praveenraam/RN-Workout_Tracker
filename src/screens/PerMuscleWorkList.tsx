@@ -1,9 +1,9 @@
-import { Image, Text, View, ScrollView } from 'react-native';
+import { Image, Text, View, ScrollView,Pressable } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { FlatList } from 'react-native-gesture-handler';
-
+import { getData, saveData } from '../utils/asyncStorageUtils';
 //
 const StyledImage = styled(Image);
 const StyledView = styled(View);
@@ -67,6 +67,11 @@ const PerMuscleWorkedList = () => {
   const route = useRoute<RouteProp<Param,'Muscle'>>();
   const muscleName = route.params.muscleName;
 
+  // Store workout like this
+  const handleSaveWorkout = async (newWorkoutName: string) => {
+    
+  };
+
   // Getting workout list
   useEffect(() => {
     const workouts = getWorkout(muscleName);
@@ -91,11 +96,13 @@ const PerMuscleWorkedList = () => {
               keyExtractor={(item) => item.id}
               renderItem={({item}) => (
                 <StyledView className="flex flex-row items-center justify-between mb-3">
-                  <ScrollView className="flex-1">
+                  <StyledView className="flex-1">
                     <StyledText key={item.no} className="text-xl font-bold text-white">{item.name}</StyledText>
                     <StyledText className="text-sm text-white mb-3">Equipment : {item.equipment}</StyledText>
-                  </ScrollView>
-                  <StyledImage className="w-7 h-7 right-3" source={require('../../assets/plus.png')} />
+                  </StyledView>
+                  <Pressable onPress={() => handleSaveWorkout(item.name)}>
+                    <StyledImage className="w-7 h-7 right-3" source={require('../../assets/plus.png')} />
+                  </Pressable>
                 </StyledView>
               )}
             />
