@@ -27,7 +27,8 @@ const Home = () => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate('Muscles List');
+    let path = 'Muscles List';
+    navigation.navigate(path);
   };
 
   return (

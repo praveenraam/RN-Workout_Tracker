@@ -1,9 +1,38 @@
 import { FlatList, Text, View, ScrollView } from 'react-native';
 import React from 'react';
 import { styled } from 'nativewind';
+import { format, isAfter, subDays } from 'date-fns';
 
 // Interface
 import { Workout } from '../../screens/Home';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getData } from '../../utils/asyncStorageUtils';
+interface WorkoutStructure {
+  [date:string]:string[];
+}
+
+const getWorkout = async (): Promise<WorkoutStructure> => {
+  console.log('Working');
+  const today = new Date();
+  const pastWeek = subDays(today,10);
+
+  const keys = await AsyncStorage.getAllKeys();
+  const allWorkouts:WorkoutStructure = {};
+
+
+  for(const key of keys){
+    const parseDate = new Date(key);
+
+    if(isAfter(parseDate,pastWeek) || key === format(today,'yyyy-MM-dd')){
+      const data = getData(key);
+      if(data){
+        allWorkouts[key] = JSON.parse(data);
+      }
+    }
+  }
+  console.log(allWorkouts);
+  return allWorkouts;
+};
 
 export const previousWorkouts: Workout[] = [
   {

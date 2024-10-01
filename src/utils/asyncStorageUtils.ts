@@ -11,7 +11,7 @@ export const saveData = async (workout:any): Promise<void> => {
         console.log('ToStore : ',jsonValue);
         await AsyncStorage.setItem(date,jsonValue);
     }catch{
-        console.log('Error i fon');
+        console.log('Error i saving data');
     }
 
 
@@ -41,6 +41,7 @@ export const removeData = async (date:any): Promise<any | null> => {
         console.log('Error in removing data');
     }
 };
+
 
 export const clearData = async(): Promise<void> =>{
     try{
