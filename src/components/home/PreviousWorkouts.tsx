@@ -1,4 +1,4 @@
-import { FlatList, Text, View, ScrollView, Pressable } from 'react-native';
+import { FlatList, Text, View, ScrollView } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import { format, isAfter, subDays } from 'date-fns';
@@ -14,23 +14,22 @@ interface WorkoutStructure {
 
 const getWorkout = async (): Promise<WorkoutStructure> => {
   const today = new Date();
-  const pastWeek = subDays(today, 10);
+  today.setHours(0, 0, 0, 0); // Set to start of the day to avoid including today
+  const pastWeek = subDays(today, 10); // Included 10 days as the rest days are excluded and minimum 7 session were shown
 
   const keys = await AsyncStorage.getAllKeys();
   const allWorkouts: WorkoutStructure = {};
 
   for (const key of keys) {
     const parseDate = new Date(key);
+    parseDate.setHours(0, 0, 0, 0); // Set to start of the day to avoid time issues
 
-    if (isAfter(parseDate, pastWeek) || key === format(today, 'yyyy-MM-dd')) {
+    if (parseDate > pastWeek && parseDate < today) {
       try {
         const data = await getData(key);
 
         if (data && typeof data === 'object') {
-          // console.log('Valid workout data for key:', key, data); // Log data for debugging
-          allWorkouts[key] = data;  // Assuming data contains 'exercises' array
-        } else {
-          console.log('Data for key', key, 'is not valid:', data);
+          allWorkouts[key] = data;
         }
       } catch (error) {
         console.error('Error retrieving data for key:', key, error);
@@ -38,9 +37,10 @@ const getWorkout = async (): Promise<WorkoutStructure> => {
     }
   }
 
-  // console.log('Workouts from the last 7 days:', allWorkouts);
   return allWorkouts;
 };
+
+
 
 export const previousWorkouts: Workout[] = [
   {
@@ -98,12 +98,15 @@ const renderWorkoutItem = ({ item }: { item: [string, { workouts: string[] }] })
     : 'No exercises done';
 
     return (
-      <StyledView className="mb-2 p-4 border-b border-grey-300">
-        <StyledText className="text-lg font-bold text-white">{formatDate(date)}</StyledText>
-        <StyledText className="text-white">
-          <Text className="font-bold text-xl">Workouts Done: </Text>
-          <Text className="text-lg">{exercisesList}</Text>
+      <StyledView className="mb-1 p-2 px-4 border-b border-grey-300">
+        <StyledText className="text-lg font-bold text-white mb-2">{formatDate(date)}</StyledText>
+        <StyledText className="font-bold text-2xl text-white ">
+          Workouts Done :
         </StyledText>
+        <StyledText className="text-lg text-white">
+          {exercisesList}
+        </StyledText>
+        <StyledView className="h-[0.5px] bg-gray-400 mt-4" />
       </StyledView>
     );
 };
@@ -125,16 +128,17 @@ const PreviousWorkouts = () => {
     fetch();
   },[]);
 
-  const workoutArray = workouts ? Object.entries(workouts) : [];
+  // Sorted in opposite order
+  const workoutArray = workouts ? Object.entries(workouts).sort((a, b) => new Date(b[0]).getTime() - new Date(a[0]).getTime()) : [];
 
   return (
     <>
       <StyledText className="text-lg font-bold text-white">Previous Day Workouts</StyledText>
       <StyledScrollView>
         <FlatList
-          data={workoutArray} // Use the array version of workouts
+          data={workoutArray}
           renderItem={renderWorkoutItem}
-          keyExtractor={(item) => item[0]} // Use the date (item[0]) as the key
+          keyExtractor={(item) => item[0]}
         />
       </StyledScrollView>
     </>
