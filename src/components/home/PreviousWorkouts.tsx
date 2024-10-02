@@ -16,7 +16,7 @@ const getWorkout = async (): Promise<WorkoutStructure> => {
   const today = new Date();
   const pastWeek = subDays(today, 10);
 
-  const keys = await AsyncStorage.getAllKeys();  // Get all stored keys
+  const keys = await AsyncStorage.getAllKeys();
   const allWorkouts: WorkoutStructure = {};
 
   for (const key of keys) {
@@ -24,13 +24,13 @@ const getWorkout = async (): Promise<WorkoutStructure> => {
 
     if (isAfter(parseDate, pastWeek) || key === format(today, 'yyyy-MM-dd')) {
       try {
-        const data = await getData(key);  // Await the async getData call
+        const data = await getData(key);
 
         if (data && typeof data === 'object') {
-          // Since data is already an object, directly assign it
-          allWorkouts[key] = data;
+          // console.log('Valid workout data for key:', key, data); // Log data for debugging
+          allWorkouts[key] = data;  // Assuming data contains 'exercises' array
         } else {
-          console.log('Data for key', key, 'is not a valid object:', data);
+          console.log('Data for key', key, 'is not valid:', data);
         }
       } catch (error) {
         console.error('Error retrieving data for key:', key, error);
@@ -38,7 +38,7 @@ const getWorkout = async (): Promise<WorkoutStructure> => {
     }
   }
 
-  console.log('Workouts from the last 7 days:', allWorkouts);
+  // console.log('Workouts from the last 7 days:', allWorkouts);
   return allWorkouts;
 };
 
@@ -84,22 +84,32 @@ export const previousWorkouts: Workout[] = [
 const StyledView = styled(View);
 const StyledScrollView = styled(ScrollView);
 const StyledText = styled(Text);
-const StyledPress = styled(Pressable);
 
 export const formatDate = (dateString:string) =>{
   const date = new Date(dateString);
   return date.toLocaleDateString('en-GB');
 };
 
-const renderWorkoutItem = ({item}:{item: Workout})  => {
-  return (
-    <StyledView className="mb-2 p-4 border-b border-grey-300">
-        <StyledText className="text-lg font-bold text-white">{formatDate(item.date)}</StyledText>
-        <StyledText className="font-bold text-xl text-white">Muscle Worked : {item.musclesWorked.join(', ')}</StyledText>
-        <StyledText className="font-bold text-white">Number of Exercises : {item.exercisesCount}</StyledText>
-    </StyledView>
-  );
+const renderWorkoutItem = ({ item }: { item: [string, { workouts: string[] }] }) => {
+  const [date, exercisesObject] = item;
+
+  const exercisesList = exercisesObject && Array.isArray(exercisesObject.workouts)
+    ? exercisesObject.workouts.join(', ')
+    : 'No exercises done';
+
+    return (
+      <StyledView className="mb-2 p-4 border-b border-grey-300">
+        <StyledText className="text-lg font-bold text-white">{formatDate(date)}</StyledText>
+        <StyledText className="text-white">
+          <Text className="font-bold text-xl">Workouts Done: </Text>
+          <Text className="text-lg">{exercisesList}</Text>
+        </StyledText>
+      </StyledView>
+    );
 };
+
+
+
 
 const PreviousWorkouts = () => {
 
@@ -115,17 +125,16 @@ const PreviousWorkouts = () => {
     fetch();
   },[]);
 
+  const workoutArray = workouts ? Object.entries(workouts) : [];
+
   return (
     <>
       <StyledText className="text-lg font-bold text-white">Previous Day Workouts</StyledText>
-      <StyledPress onPress={getWorkout}>
-        <StyledText className='text-white'>Click</StyledText>
-      </StyledPress>
       <StyledScrollView>
         <FlatList
-          data={previousWorkouts}
+          data={workoutArray} // Use the array version of workouts
           renderItem={renderWorkoutItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item[0]} // Use the date (item[0]) as the key
         />
       </StyledScrollView>
     </>
