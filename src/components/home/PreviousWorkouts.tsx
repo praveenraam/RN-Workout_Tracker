@@ -1,36 +1,44 @@
-import { FlatList, Text, View, ScrollView } from 'react-native';
-import React from 'react';
+import { FlatList, Text, View, ScrollView, Pressable } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import { format, isAfter, subDays } from 'date-fns';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getData } from '../../utils/asyncStorageUtils';
 
 // Interface
 import { Workout } from '../../screens/Home';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { getData } from '../../utils/asyncStorageUtils';
+
 interface WorkoutStructure {
   [date:string]:string[];
 }
 
 const getWorkout = async (): Promise<WorkoutStructure> => {
-  console.log('Working');
   const today = new Date();
-  const pastWeek = subDays(today,10);
+  const pastWeek = subDays(today, 10);
 
-  const keys = await AsyncStorage.getAllKeys();
-  const allWorkouts:WorkoutStructure = {};
+  const keys = await AsyncStorage.getAllKeys();  // Get all stored keys
+  const allWorkouts: WorkoutStructure = {};
 
-
-  for(const key of keys){
+  for (const key of keys) {
     const parseDate = new Date(key);
 
-    if(isAfter(parseDate,pastWeek) || key === format(today,'yyyy-MM-dd')){
-      const data = getData(key);
-      if(data){
-        allWorkouts[key] = JSON.parse(data);
+    if (isAfter(parseDate, pastWeek) || key === format(today, 'yyyy-MM-dd')) {
+      try {
+        const data = await getData(key);  // Await the async getData call
+
+        if (data && typeof data === 'object') {
+          // Since data is already an object, directly assign it
+          allWorkouts[key] = data;
+        } else {
+          console.log('Data for key', key, 'is not a valid object:', data);
+        }
+      } catch (error) {
+        console.error('Error retrieving data for key:', key, error);
       }
     }
   }
-  console.log(allWorkouts);
+
+  console.log('Workouts from the last 7 days:', allWorkouts);
   return allWorkouts;
 };
 
@@ -76,6 +84,7 @@ export const previousWorkouts: Workout[] = [
 const StyledView = styled(View);
 const StyledScrollView = styled(ScrollView);
 const StyledText = styled(Text);
+const StyledPress = styled(Pressable);
 
 export const formatDate = (dateString:string) =>{
   const date = new Date(dateString);
@@ -94,9 +103,24 @@ const renderWorkoutItem = ({item}:{item: Workout})  => {
 
 const PreviousWorkouts = () => {
 
+  const [workouts,setWorkouts] = useState<WorkoutStructure | null>(null);
+
+  useEffect(()=>{
+
+    const fetch = async () => {
+      const retrievedWorkout = await getWorkout();
+      setWorkouts(retrievedWorkout);
+    };
+
+    fetch();
+  },[]);
+
   return (
     <>
       <StyledText className="text-lg font-bold text-white">Previous Day Workouts</StyledText>
+      <StyledPress onPress={getWorkout}>
+        <StyledText className='text-white'>Click</StyledText>
+      </StyledPress>
       <StyledScrollView>
         <FlatList
           data={previousWorkouts}
