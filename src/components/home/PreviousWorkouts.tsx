@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getData } from '../../utils/asyncStorageUtils';
 
 // Interface for the workout structure
-interface WorkoutStructure {
+export interface WorkoutStructure {
   [date: string]: string[];
 }
 

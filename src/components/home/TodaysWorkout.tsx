@@ -1,9 +1,10 @@
 import { Text, View, FlatList } from 'react-native';
 import React from 'react';
-import { previousWorkouts } from './PreviousWorkouts';
 import { styled } from 'nativewind';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getData } from '../../utils/asyncStorageUtils';
 
-import { Workout } from '../../screens/Home';
+import { WorkoutStructure } from './PreviousWorkouts';
 
 
 const getTodayDate = (): string => {
@@ -18,11 +19,24 @@ const normalizeDate = (dateString: string): string => {
   return normalized;
 };
 
-const todayWorkout = previousWorkouts.filter(workout => {
-  const normalizedWorkoutDate = normalizeDate(workout.date);
+const fetchTodayWorkout = async (): Promise<string[] | null> => {
+  const keys = await AsyncStorage.getAllKeys();
   const todayDate = getTodayDate();
-  return normalizedWorkoutDate === todayDate;
-});
+
+  for(const key of keys){
+    const normalizedKey = normalizeDate(key);
+
+    if(normalizedKey === todayDate){
+      const data = await getData(key);
+      if(data && Array.isArray(data)){
+        return data;
+      }
+    }
+  }
+
+  return null;
+};
+
 
 const StyledView = styled(View);
 const StyledText = styled(Text);
