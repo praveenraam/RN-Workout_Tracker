@@ -1,5 +1,5 @@
 import { Text, View, FlatList } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getData } from '../../utils/asyncStorageUtils';
@@ -28,8 +28,9 @@ const fetchTodayWorkout = async (): Promise<string[] | null> => {
 
     if(normalizedKey === todayDate){
       const data = await getData(key);
-      if(data && Array.isArray(data)){
-        return data;
+      if(data && typeof data === 'object' && Array.isArray(data.workouts)){
+        console.log(data);
+        return data.workouts;
       }
     }
   }
@@ -43,40 +44,39 @@ const StyledText = styled(Text);
 
 const TodaysWorkout = () => {
 
+  const [todayWorkout,setTodayWorkout] = useState<string[] | null>(null);
+
+  useEffect(() => {
+    const fetchWorkout = async () => {
+      const workout = await fetchTodayWorkout();
+      console.log('Work  : ',workout);
+      setTodayWorkout(workout);
+    };
+
+    fetchWorkout();
+  }, []);
+
   const renderWorkoutItem = ({item}:{item: Workout}) => {
     return (
-      <StyledView>
-
-        <StyledText className="font-bold texttext-xl text-white">Muscle Worked : {item.musclesWorked.join(', ')}</StyledText>
-        <StyledText className="font-bold text-white">Number of Exercises : {item.exercisesCount}</StyledText>
-
-        <StyledView>
-
-          <StyledText className="font-bold text-black my-3 text-xl text-white">Exercises : </StyledText>
-          {item.exercises.map((exercise,index)=>(
-            <StyledText className="text-black text-base	text-white" key={index}> &#8227;  {exercise}</StyledText>
-          ))}
-        </StyledView>
-
-      </StyledView>
+      <StyledText className="text-base text-white">&#8227; {item}</StyledText>
     );
   };
 
   return (
     <StyledView className="mb-2">
-      <StyledText className="text-3xl font-bold text-black mb-5 text-white">Today's Workout</StyledText>
-
-      {todayWorkout.length > 0 ?
-        (<FlatList data={todayWorkout}
-          renderItem={renderWorkoutItem}
-          keyExtractor={(item)=>item.id}
-          horizontal={true}
-        />) : (
+      <StyledText className="text-3xl font-bold text-white mb-5">Today's Workout</StyledText>
+      {todayWorkout && todayWorkout.length > 0 ?
+        (
+          <FlatList
+            data={todayWorkout}
+            renderItem={renderWorkoutItem}
+            keyExtractor={(item,index) => index.toString()}
+          />
+        ):(
           <StyledText className="text-lg font-bold text-white">No workout done today</StyledText>
         )
       }
     </StyledView>
-
   );
 };
 
