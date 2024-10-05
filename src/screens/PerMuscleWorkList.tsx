@@ -74,20 +74,28 @@ const PerMuscleWorkedList = () => {
       let updatedWorkout;
 
       const existingData = await getData(dateKey);
+
       if (existingData) {
-        updatedWorkout = {
-          ...existingData,
-          workouts: [...(existingData.workouts || []), newWorkoutName],
-        };
+
+        if(existingData.workout && !existingData.workout.includes(newWorkoutName)){
+          updatedWorkout = {
+            ...existingData,
+            workouts: [...(existingData.workouts || []), newWorkoutName],
+          };
+
+          await saveData(updatedWorkout);
+          console.log('Workout saved successfully');
+        }
+        else{
+          console.log('workout is already exist');
+        }
       } else {
         updatedWorkout = {
           workouts: [newWorkoutName],
         };
+        await saveData(updatedWorkout);
+        console.log('workout saved successfully');
       }
-
-      // console.log(updatedWorkout);
-      await saveData(updatedWorkout);
-      console.log('Workout saved successfully');
     } catch (error) {
       console.log('Error saving workout', error);
     }
@@ -97,7 +105,7 @@ const PerMuscleWorkedList = () => {
   useEffect(() => {
     const workouts = getWorkout(muscleName);
     setWorkoutList(workouts);
-    console.log('Workout List:', workouts);
+    // console.log('Workout List:', workouts);
   }, [muscleName]);
 
   return (

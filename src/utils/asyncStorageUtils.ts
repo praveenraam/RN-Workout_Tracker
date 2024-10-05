@@ -14,7 +14,6 @@ export const saveData = async (workout:any): Promise<void> => {
         console.log('Error i saving data');
     }
 
-
 };
 
 export const getData = async (date:any): Promise<any | null> => {

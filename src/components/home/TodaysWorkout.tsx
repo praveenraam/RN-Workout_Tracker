@@ -4,8 +4,6 @@ import { styled } from 'nativewind';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getData } from '../../utils/asyncStorageUtils';
 
-import { WorkoutStructure } from './PreviousWorkouts';
-
 
 const getTodayDate = (): string => {
   const today = new Date();
