@@ -57,7 +57,7 @@ export const formatDate = (dateString: string) => {
 
 const renderWorkoutItem = ({ item }: { item: [string, { workouts: string[] }] }) => {
   const [date, exercisesObject] = item;
-  const {workouts, muscleWorked} = exercisesObject;
+  const {muscleWorked} = exercisesObject;
 
   const exercisesList = exercisesObject && Array.isArray(exercisesObject.workouts)
     ? exercisesObject.workouts.join(', ')

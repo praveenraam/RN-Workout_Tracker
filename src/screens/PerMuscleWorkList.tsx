@@ -77,7 +77,9 @@ const PerMuscleWorkedList = () => {
 
       if (existingData) {
 
-        if(existingData.workout && !existingData.workout.includes(newWorkoutName)){
+        const workoutsList = existingData.workouts || [];
+
+        if(!workoutsList.includes(newWorkoutName)){
           updatedWorkout = {
             ...existingData,
             workouts: [...(existingData.workouts || []), newWorkoutName],
