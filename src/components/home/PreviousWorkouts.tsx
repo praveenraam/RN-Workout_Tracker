@@ -10,6 +10,8 @@ export interface WorkoutStructure {
   [date: string]: string[];
 }
 
+const muscleData = require('../../workoutData/muscleNames.json');
+
 const getWorkout = async (): Promise<WorkoutStructure> => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -26,7 +28,14 @@ const getWorkout = async (): Promise<WorkoutStructure> => {
       try {
         const data = await getData(key);
         if (data && typeof data === 'object') {
-          allWorkouts[key] = data;
+
+          const muscleWorked = Array.from(
+            new Set(
+              data.workouts.map((workout: string) => muscleData[workout] || 'Unknown')
+            )
+          );
+
+          allWorkouts[key] = { workouts: data.workouts, muscleWorked };
         }
       } catch (error) {
         console.error('Error retrieving data for key:', key, error);
@@ -48,21 +57,32 @@ export const formatDate = (dateString: string) => {
 
 const renderWorkoutItem = ({ item }: { item: [string, { workouts: string[] }] }) => {
   const [date, exercisesObject] = item;
+  const {workouts, muscleWorked} = exercisesObject;
 
   const exercisesList = exercisesObject && Array.isArray(exercisesObject.workouts)
     ? exercisesObject.workouts.join(', ')
     : 'No exercises done';
 
+  const musclesWorkedList = muscleWorked.join(', ');
+
   return (
     <StyledView className="mb-1 p-2 px-4 border-b border-grey-300">
+
       <StyledText className="text-lg font-bold text-white mb-2">{formatDate(date)}</StyledText>
       <StyledText className="font-bold text-2xl text-white">
         Workouts Done:
       </StyledText>
-      <StyledText className="text-lg text-white">
+      <StyledText className="text-lg text-white mb-2">
         {exercisesList}
       </StyledText>
+
+      <StyledText className="font-bold text-2xl text-white">
+        Muscles Worked:
+      </StyledText>
+      <StyledText className="text-lg text-white">{musclesWorkedList}</StyledText>
+
       <StyledView className="h-[0.5px] bg-gray-400 mt-4" />
+
     </StyledView>
   );
 };
