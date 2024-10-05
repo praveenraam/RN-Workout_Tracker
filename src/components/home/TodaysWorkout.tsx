@@ -56,7 +56,7 @@ const TodaysWorkout = () => {
 
   const renderWorkoutItem = ({item}:{item: Workout}) => {
     return (
-      <StyledText className="text-base text-white">&#8227; {item}</StyledText>
+      <StyledText className="text-base text-white">  &#8227;   {item}</StyledText>
     );
   };
 
