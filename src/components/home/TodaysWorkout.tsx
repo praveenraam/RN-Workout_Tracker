@@ -1,4 +1,4 @@
-import { Text, View, FlatList, Pressable } from 'react-native';
+import { Text, View, FlatList, Pressable, Image } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -40,6 +40,7 @@ const fetchTodayWorkout = async (): Promise<string[] | null> => {
 const StyledView = styled(View);
 const StyledText = styled(Text);
 const StyledPress = styled(Pressable);
+const StyledImg = styled(Image);
 
 const TodaysWorkout = () => {
 
@@ -65,11 +66,11 @@ const TodaysWorkout = () => {
   };
 
   return (
-    <StyledView className="mb-2">
-      <StyledView>
+    <StyledView>
+      <StyledView className="flex-row justify-between">
         <StyledText className="text-3xl font-bold text-white mb-5">Today's Workout</StyledText>
         <StyledPress onPress={fetchWorkout}>
-          <StyledText className="text-white">Refresh Workout</StyledText>
+          <StyledImg source={require('../../../assets/refresh.png')} className="w-6 h-6" />
         </StyledPress>
       </StyledView>
 
