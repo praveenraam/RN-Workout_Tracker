@@ -1,4 +1,4 @@
-import { Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList, Pressable } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -39,22 +39,26 @@ const fetchTodayWorkout = async (): Promise<string[] | null> => {
 
 const StyledView = styled(View);
 const StyledText = styled(Text);
+const StyledPress = styled(Pressable);
 
 const TodaysWorkout = () => {
 
   const [todayWorkout,setTodayWorkout] = useState<string[] | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false); // Add loading state
+
+  const fetchWorkout = async () => {
+    setIsLoading(true);
+    const workout = await fetchTodayWorkout();
+    // console.log('Work  : ',workout);
+    setTodayWorkout(workout);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
-    const fetchWorkout = async () => {
-      const workout = await fetchTodayWorkout();
-      console.log('Work  : ',workout);
-      setTodayWorkout(workout);
-    };
-
     fetchWorkout();
   }, []);
 
-  const renderWorkoutItem = ({item}:{item: Workout}) => {
+  const renderWorkoutItem = ({item}:{item: string}) => {
     return (
       <StyledText className="text-base text-white">  &#8227;   {item}</StyledText>
     );
@@ -62,16 +66,29 @@ const TodaysWorkout = () => {
 
   return (
     <StyledView className="mb-2">
-      <StyledText className="text-3xl font-bold text-white mb-5">Today's Workout</StyledText>
-      {todayWorkout && todayWorkout.length > 0 ?
-        (
-          <FlatList
-            data={todayWorkout}
-            renderItem={renderWorkoutItem}
-            keyExtractor={(item,index) => index.toString()}
-          />
-        ):(
-          <StyledText className="text-lg font-bold text-white">No workout done today</StyledText>
+      <StyledView>
+        <StyledText className="text-3xl font-bold text-white mb-5">Today's Workout</StyledText>
+        <StyledPress onPress={fetchWorkout}>
+          <StyledText className="text-white">Refresh Workout</StyledText>
+        </StyledPress>
+      </StyledView>
+
+      {  isLoading ? (
+          <StyledText className="text-lg font-bold text-white m-5">Loading...</StyledText>
+        ) : (
+          <>
+            {todayWorkout && todayWorkout.length > 0 ?
+              (
+                <FlatList
+                  data={todayWorkout}
+                  renderItem={renderWorkoutItem}
+                  keyExtractor={(item,index) => index.toString()}
+                />
+              ) : (
+                <StyledText className="text-lg font-bold text-white">No workout done today</StyledText>
+              )
+            }
+          </>
         )
       }
     </StyledView>

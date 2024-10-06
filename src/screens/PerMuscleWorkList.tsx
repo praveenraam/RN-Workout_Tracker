@@ -32,7 +32,7 @@ const PerMuscleWorkedList = () => {
       return require('../../assets/WorkoutList/Chest.webp');
     }
     else if(Muscle === 'Legs'){
-      return require('../../assets/WorkoutList/Glutes.webp');
+      return require('../../assets/WorkoutList/Quadriceps.webp');
     }
     else if(Muscle === 'Shoulders'){
       return require('../../assets/WorkoutList/Shoulders.webp');
