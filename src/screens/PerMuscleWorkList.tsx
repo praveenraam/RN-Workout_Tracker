@@ -1,8 +1,7 @@
-import { Image, Text, View, ScrollView,Pressable } from 'react-native';
+import { Alert, Image, Text, View, ScrollView, Pressable, Animated, FlatList } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { FlatList } from 'react-native-gesture-handler';
 import { getData, saveData } from '../utils/asyncStorageUtils';
 //
 const StyledImage = styled(Image);
@@ -86,9 +85,19 @@ const PerMuscleWorkedList = () => {
           };
 
           await saveData(updatedWorkout);
+          Alert.alert(
+            'Workout Added',
+            `${newWorkoutName} successfully added!`,
+            [{text:'OK',onPress: () => console.log('OK Pressed')}]
+          );
           console.log('Workout saved successfully');
         }
         else{
+          Alert.alert(
+            'Duplicate Entry',
+            'This workout already added.',
+            [{text:'OK',onPress: () => console.log('OK Pressed')}]
+          );
           console.log('workout is already exist');
         }
       } else {
@@ -96,6 +105,11 @@ const PerMuscleWorkedList = () => {
           workouts: [newWorkoutName],
         };
         await saveData(updatedWorkout);
+        Alert.alert(
+          'Workout Added',
+          `${newWorkoutName} successfully added!`,
+          [{text:'OK',onPress: () => console.log('OK Pressed')}]
+        );
         console.log('workout saved successfully');
       }
     } catch (error) {
@@ -117,7 +131,7 @@ const PerMuscleWorkedList = () => {
       <StyledView className="flex flex-row ">
         <StyledView className="w-[10%] flex justify-center items-center">
         <StyledView className="w-[3px] bg-gray-400 mx-4 h-full" />
-        </StyledView>
+      </StyledView>
 
         <StyledScrollView className="text-white">
           <StyledView>
