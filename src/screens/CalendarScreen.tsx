@@ -1,17 +1,23 @@
 import { Text, View } from 'react-native';
 import React, { useState } from 'react';
-import { Calendar } from 'react-native-calendars';
+import { Calendar, DateObject } from 'react-native-calendars';
 import { styled } from 'nativewind';
+import { useNavigation } from '@react-navigation/native';
+
 
 const StyledCalender = styled(Calendar)
 
 const CalendarScreen = () => {
 
   const [selected,setSelected] = useState('');
+  const navigation = useNavigation();
 
   const handleDayPress = (day: DateObject) => {
     console.log('Selected Date : ',day.dateString);
     setSelected(day.dateString);
+
+    navigation.navigate('Workout',{ selectedDate:day.dateString });
+
   };
 
   return (
