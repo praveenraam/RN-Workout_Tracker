@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/Home';
 import MuscleList from './screens/MusclesList';
 import PerMuscleWorkedList from './screens/PerMuscleWorkList';
-import Calendar from './screens/Calendar';
+import CalendarScreen from './screens/CalendarScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,7 +33,7 @@ const App = () => {
           />
           <Stack.Screen name="Muscles List" component={MuscleList} />
           <Stack.Screen name="Muscle Workout List" component={PerMuscleWorkedList} />
-          <Stack.Screen name="Calendar" component={Calendar} />
+          <Stack.Screen name="Calendar" component={CalendarScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
