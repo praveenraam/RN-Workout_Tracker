@@ -7,6 +7,7 @@ import Home from './screens/Home';
 import MuscleList from './screens/MusclesList';
 import PerMuscleWorkedList from './screens/PerMuscleWorkList';
 import CalendarScreen from './screens/CalendarScreen';
+import GetDateWorkout from './components/CalendarView/GetDateWorkout';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,7 @@ const App = () => {
           <Stack.Screen name="Muscles List" component={MuscleList} />
           <Stack.Screen name="Muscle Workout List" component={PerMuscleWorkedList} />
           <Stack.Screen name="Calendar" component={CalendarScreen} />
+          <Stack.Screen name="Workout" component={GetDateWorkout} />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
