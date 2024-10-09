@@ -12,15 +12,20 @@ const GetDateWorkout = () => {
   useEffect(() => {
     const loadData = async () => {
         const jsonValue  = await getData(selectedDate);
-        setWorkoutList(jsonValue);
-        // console.log(workoutsList);
+
+        if(jsonValue){
+          setWorkoutList(jsonValue.workouts.join(', '));
+        }
+        else{
+          setWorkoutList('No workouts available');
+        }
     };
     loadData();
   },[selectedDate]);
 
   return (
     <View>
-      <Text>{selectedDate}</Text>
+      <Text>{workoutsList}</Text>
     </View>
   );
 };
