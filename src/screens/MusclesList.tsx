@@ -29,6 +29,7 @@ const MuscleList = () => {
   };
 
   return (
+    <>
     <StyledScrollView className="w-full h-full bg-black">
       {muscleGroups.map((group,index) => (
         <StyledPressable key={index} onPress={() => handleNavigation(group)} className="bg-violet-600 mt-5 mx-4 p-4 rounded-2xl flex-row items-center justify-between">
@@ -37,6 +38,11 @@ const MuscleList = () => {
         </StyledPressable>
       ))}
     </StyledScrollView>
+    <StyledPressable className="bg-violet-600 p-4 absolute bottom-0 right-0 left-0 flex-row items-center justify-between">
+        <StyledText className="text-2xl font-bold text-white ">Add a new workout</StyledText>
+        <StyledImage source={require('../../assets/right.png')} className="w-10 h-10 "/>
+      </StyledPressable>
+    </>
   );
 };
 
