@@ -24,6 +24,10 @@ const MuscleList = () => {
 
   const navigation = useNavigation<MuscleListScreenNavigationProp>();
 
+  const handleNewWorkoutNavigation = () => {
+    navigation.navigate('New Workout');
+  };
+
   const handleNavigation = (group:string) => {
     navigation.navigate('Muscle Workout List',{ muscleName:group });
   };
@@ -38,7 +42,7 @@ const MuscleList = () => {
         </StyledPressable>
       ))}
     </StyledScrollView>
-    <StyledPressable className="bg-violet-600 p-4 absolute bottom-0 right-0 left-0 flex-row items-center justify-between">
+    <StyledPressable onPress={handleNewWorkoutNavigation} className="bg-violet-600 p-4 absolute bottom-0 right-0 left-0 flex-row items-center justify-between">
         <StyledText className="text-2xl font-bold text-white ">Add a new workout</StyledText>
         <StyledImage source={require('../../assets/right.png')} className="w-10 h-10 "/>
       </StyledPressable>
