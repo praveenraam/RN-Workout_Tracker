@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { Alert, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { Calendar, DateObject } from 'react-native-calendars';
 import { styled } from 'nativewind';
@@ -12,11 +12,22 @@ const CalendarScreen = () => {
   const [selected,setSelected] = useState('');
   const navigation = useNavigation();
 
+  const today = new Date().toISOString().split('T')[0];
+
   const handleDayPress = (day: DateObject) => {
     console.log('Selected Date : ',day.dateString);
     setSelected(day.dateString);
 
-    navigation.navigate('Workout',{ selectedDate:day.dateString });
+    if(day.dateString > today){
+      Alert.alert(
+        'Invalid Date Selection',
+        'The selected date exceeds today. Please select a valid date',
+        [{text:'OK'}]
+      );
+    }
+    else{
+      navigation.navigate('Workout',{ selectedDate:day.dateString });
+    }
 
   };
 
