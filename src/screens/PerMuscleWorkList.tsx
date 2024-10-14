@@ -1,4 +1,4 @@
-import { Alert, Image, Text, View, ScrollView, Pressable, Animated, FlatList } from 'react-native';
+import { Alert, Image, Text, View, ScrollView, Pressable, FlatList } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import { RouteProp, useRoute } from '@react-navigation/native';
