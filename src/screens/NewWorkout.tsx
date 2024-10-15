@@ -22,20 +22,22 @@ const NewWorkout = () => {
   const muscleGroups = ['Back','Biceps','Leg','Shoulders','Triceps','Chest'];
 
   return (
-    <StyledScrollView className="bg-grey">
-      <StyledView>
-        <StyledText className="text-white">WorkoutName</StyledText>
+    <StyledScrollView className="flex-1 bg-black p-5">
+      <StyledView className="mb-4">
+        <StyledText className="text-white text-xl mb-2">WorkoutName</StyledText>
         <StyledTextInput
-          className="bg-grey-800 text-white"
+          className="bg-gray-800 text-white p-3 rounded-lg"
           placeholder="Enter workout Name"
-          placeholderTextColor="#888"
+          placeholderTextColor="#fff"
           value={workoutName}
         />
       </StyledView>
 
-      <StyledView>
-        <StyledText>Muscle Worked</StyledText>
-        <StyledPicker>
+      <StyledView className="mb-4">
+        <StyledText className="text-white text-xl mb-2">Muscle Worked</StyledText>
+        <StyledPicker
+          className="bg-gray-800 text-white rounded-lg"
+        >
           <StyledPicker.Item label="Select muscle group" value="" />
           {muscleGroups.map((group, index) => (
             <StyledPicker.Item key={index} label={group} value={group} />
@@ -43,17 +45,20 @@ const NewWorkout = () => {
         </StyledPicker>
       </StyledView>
 
-      <StyledView>
-        <StyledText className="text-white">Equipment required</StyledText>
+      <StyledView className="mb-4">
+        <StyledText className="text-white text-xl mb-2">Equipment required</StyledText>
         <StyledTextInput
+          className="rounded-lg bg-gray-800 text-white p-3"
           placeholder="Enter the Equipment required"
-          placeholderTextColor="#888"
+          placeholderTextColor="#fff"
           value={muscleWorked}
         />
       </StyledView>
 
-      <StyledPressable className="bg-white item-centre">
-        <StyledText className="text-black">Add Workout</StyledText>
+      <StyledPressable
+        className="bg-violet-600 p-4 rounded-lg mt-5"
+      >
+        <StyledText className="text-white text-center">Add Workout</StyledText>
       </StyledPressable>
 
     </StyledScrollView>
