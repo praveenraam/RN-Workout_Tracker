@@ -28,7 +28,8 @@ const NewWorkout = () => {
     console.log('Muscle : ',muscleWorked);
 
     if(workoutName && equipment && muscleWorked){
-      const newWorkoutData = {workoutName, equipment};
+      let name = workoutName;
+      const newWorkoutData = {name, equipment};
 
       try{
 
