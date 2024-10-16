@@ -1,8 +1,9 @@
-import { Text, View, TextInput, Pressable } from 'react-native';
+import { Text, View, TextInput, Pressable, Alert } from 'react-native';
 import React, { useState } from 'react';
 import { styled } from 'nativewind';
 import { Picker } from '@react-native-picker/picker';
 import { ScrollView } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const StyledView = styled(View);
@@ -21,10 +22,32 @@ const NewWorkout = () => {
 
   const muscleGroups = ['Back','Biceps','Leg','Shoulders','Triceps','Chest'];
 
-  const handlePress = () => {
+  const handlePress = async () => {
     console.log('Workout Name : ', workoutName);
     console.log('Equipment : ',equipment);
     console.log('Muscle : ',muscleWorked);
+
+    if(workoutName && equipment && muscleWorked){
+      const newWorkoutData = {workoutName, equipment};
+
+      try{
+
+        const excistingData = await AsyncStorage.getItem(muscleWorked);
+        const parseData = excistingData ? JSON.parse(excistingData) : [];
+
+        const updatedData = [...parseData,newWorkoutData];
+
+        await AsyncStorage.setItem(muscleWorked,JSON.stringify(updatedData));
+        Alert.alert('Successful','Workout has been added');
+
+      }
+      catch(error){
+        Alert.alert('Error','Failed to add the new Workout');
+      }
+    }
+    else{
+      Alert.alert('Validation Error','Fill the details properly');
+    }
   };
 
   return (
