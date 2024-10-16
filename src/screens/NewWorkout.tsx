@@ -20,7 +20,7 @@ const NewWorkout = () => {
   const [equipment,setEquipment] = useState<string>('');
   const [muscleWorked,setMuslceWorked] = useState<string>('');
 
-  const muscleGroups = ['Back','Biceps','Leg','Shoulders','Triceps','Chest'];
+  const muscleGroups = ['Back','Biceps','Legs','Shoulders','Triceps','Chest'];
 
   const handlePress = async () => {
     console.log('Workout Name : ', workoutName);
@@ -48,6 +48,11 @@ const NewWorkout = () => {
     else{
       Alert.alert('Validation Error','Fill the details properly');
     }
+
+    // Reset to default
+    setWorkoutName('');
+    setMuslceWorked('');
+    setEquipment('');
   };
 
   return (
