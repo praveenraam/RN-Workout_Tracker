@@ -9,6 +9,7 @@ import PerMuscleWorkedList from './screens/PerMuscleWorkList';
 import CalendarScreen from './screens/CalendarScreen';
 import GetDateWorkout from './components/CalendarView/GetDateWorkout';
 import NewWorkout from './screens/NewWorkout';
+import DeleteWorkout from './screens/DeleteWorkout';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,7 +42,7 @@ const App = () => {
             options={({ navigation }) => ({
               headerLeft: () => (<Text className="text-xl font-bold text-black ml-2">Workout App</Text>),
               headerRight: () => ( 
-              <Pressable onPress={() => navigation.navigate('Calendar')}>
+              <Pressable onPress={() => navigation.navigate('Delete Workout')}>
                 <Image 
                   source={require('../assets/bin.png')} 
                   className="w-7 h-7 mr-2" 
@@ -51,6 +52,7 @@ const App = () => {
               headerTitleAlign: 'center',
             })}
           />
+          <Stack.Screen name="Delete Workout" component={DeleteWorkout} />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
