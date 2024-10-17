@@ -29,10 +29,9 @@ const NewWorkout = () => {
 
     if(workoutName && equipment && muscleWorked){
       let name = workoutName;
-      const newWorkoutData = {name, equipment};
+      const newWorkoutData = {name, equipment, muscleWorked};
 
       try{
-
         const excistingData = await AsyncStorage.getItem(muscleWorked);
         const parseData = excistingData ? JSON.parse(excistingData) : [];
 
