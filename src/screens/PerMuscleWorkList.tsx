@@ -118,9 +118,8 @@ const PerMuscleWorkedList = () => {
     }
   };
 
-  const getDataFromAsync = async (muscleName: string) => {
-    const data = await AsyncStorage.getItem(muscleName);
-    return data;
+  const getDataFromAsync = async (muscle: string) => {
+    return await AsyncStorage.getItem(muscle);
   };
 
   useEffect(() => {
