@@ -7,6 +7,7 @@ const StyledImage = styled(Image);
 const StyledView = styled(View);
 const StyledText = styled(Text);
 const StyledScrollView = styled(ScrollView);
+const StyledFlatList = styled(FlatList);
 
 const DeleteWorkout = () => {
 
@@ -34,37 +35,26 @@ const DeleteWorkout = () => {
         fetchData();
     },[]);
 
-//     return (
-//     <View>
-//       <Text>DeleteWorkout</Text>
-//     </View>
-//   );
-
     return(
-        <StyledScrollView className="h-screen">
-
-            <FlatList
+        <StyledScrollView className="h-screen bg-black">
+            <StyledFlatList className="mt-4"
 
                 data={workoutsData}
                 keyExtractor={(item) => item.id}
                 renderItem={({item}) => (
-                    <>
-                        <StyledView>
-                            <StyledView>
-                                <StyledText key={item.no}>{item.name}</StyledText>
-                                <StyledText>Muscle : {item.muscleWorked}</StyledText>
-                                <StyledText>Equipment : {item.equipment}</StyledText>
-                            </StyledView>
+                    <StyledView className="flex flex-row items-center justify-between mb-2 mx-4">
+                        <StyledView className="flex-1">
+                            <StyledText key={item.no} className="text-2xl font-bold text-white">{item.name}</StyledText>
+                            <StyledText className="text-sm text-white mb-1">Muscle : {item.muscleWorked}</StyledText>
+                            <StyledText className="text-sm text-white mb-3">Equipment : {item.equipment}</StyledText>
                         </StyledView>
                         <Pressable>
-                            <StyledImage source={require('../../assets/right.png')} />
+                            <StyledImage className="w-7 h-7 right-3" source={require('../../assets/right.png')} />
                         </Pressable>
-                    </>
+                    </StyledView>
                 )}
             />
-
         </StyledScrollView>
-
     );
 
 };
