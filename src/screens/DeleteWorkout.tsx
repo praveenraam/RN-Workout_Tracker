@@ -49,7 +49,7 @@ const DeleteWorkout = () => {
                             <StyledText className="text-sm text-white mb-3">Equipment : {item.equipment}</StyledText>
                         </StyledView>
                         <Pressable>
-                            <StyledImage className="w-7 h-7 right-3" source={require('../../assets/right.png')} />
+                            <StyledImage className="w-8 h-8 right-3" source={require('../../assets/x-mark.png')} />
                         </Pressable>
                     </StyledView>
                 )}
