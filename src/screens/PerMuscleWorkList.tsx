@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { styled } from 'nativewind';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { getData, saveData } from '../utils/asyncStorageUtils';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 //
 const StyledImage = styled(Image);
 const StyledView = styled(View);
@@ -117,11 +118,28 @@ const PerMuscleWorkedList = () => {
     }
   };
 
-  // Getting workout list
+  const getDataFromAsync = async (muscle: string) => {
+    return await AsyncStorage.getItem(muscle);
+  };
+
   useEffect(() => {
-    const workouts = getWorkout(muscleName);
-    setWorkoutList(workouts);
-    // console.log('Workout List:', workouts);
+    const fetchData = async () => {
+      // Get workouts from getWorkout function
+      const workouts = getWorkout(muscleName);
+
+      // Get data from AsyncStorage and append it to workouts
+      const asyncData = await getDataFromAsync(muscleName);
+      console.log('data',muscleName,'',asyncData);
+
+      if (asyncData) {
+        const parsedData = JSON.parse(asyncData);
+        setWorkoutList([...workouts, ...parsedData]);
+      } else {
+        setWorkoutList(workouts);
+      }
+    };
+
+    fetchData();
   }, [muscleName]);
 
   return (

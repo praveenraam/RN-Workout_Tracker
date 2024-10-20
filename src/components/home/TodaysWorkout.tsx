@@ -18,22 +18,29 @@ const normalizeDate = (dateString: string): string => {
 };
 
 const fetchTodayWorkout = async (): Promise<string[] | null> => {
-  const keys = await AsyncStorage.getAllKeys();
-  const todayDate = getTodayDate();
 
-  for(const key of keys){
-    const normalizedKey = normalizeDate(key);
+  try{
+    const keys = await AsyncStorage.getAllKeys();
+    const todayDate = getTodayDate();
 
-    if(normalizedKey === todayDate){
-      const data = await getData(key);
-      if(data && typeof data === 'object' && Array.isArray(data.workouts)){
-        console.log(data);
-        return data.workouts;
+    for(const key of keys){
+      const normalizedKey = normalizeDate(key);
+
+      if(normalizedKey === todayDate){
+        const data = await getData(key);
+        if(data && typeof data === 'object' && Array.isArray(data.workouts)){
+          console.log(data);
+          return data.workouts;
+        }
       }
     }
-  }
 
-  return null;
+    return [];
+  }
+  catch(error){
+    console.log('Error in Fetching');
+    return [];
+  }
 };
 
 
