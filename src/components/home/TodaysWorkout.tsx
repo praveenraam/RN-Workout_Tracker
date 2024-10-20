@@ -18,7 +18,7 @@ const normalizeDate = (dateString: string): string => {
 };
 
 const fetchTodayWorkout = async (): Promise<string[] | null> => {
-  
+
   try{
     const keys = await AsyncStorage.getAllKeys();
     const todayDate = getTodayDate();
